@@ -40,7 +40,7 @@
       "src": "plugins/scl-validating/scl-validating.js"
     },
     {
-      "name": "Wiazrding",
+      "name": "Wizarding",
       "translation": {
         "de": "Wizarding"
       },
@@ -52,13 +52,14 @@
   ],
   "editor": [
     {
-      "name": "Start",
+      "name": "SLD Designer",
       "translations": {
-        "de": "Start"
+        "de": "SLD Designer"
       },
-      "icon": "start",
+      "icon": "add_box",
       "active": true,
-      "src": "plugins/scl-editor-landing/scl-editor-landing.js"
+      "requireDoc": true,
+      "src": "plugins/oscd-designer/oscd-designer.js"
     },
     {
       "name": "Publisher",
@@ -82,7 +83,21 @@
       "icon": "settings_ethernet",
       "active": true,
       "requireDoc": true,
-      "src": "plugins/oscd-communication/oscd-communication.js"
+      "src": "plugins/oscd-communication/scl-communication.js"
+    },
+    {
+      "name": "IED browser",
+      "icon": "developer_board",
+      "active": true,
+      "requireDoc": true,
+      "src": "plugins/scl-ied-browser/scl-ied-browser.js"
+    },
+    {
+      "name": "IED editor",
+      "icon": "developer_board",
+      "active": true,
+      "requireDoc": true,
+      "src": "plugins/scl-ied-editor/scl-ied-editor.js"
     },
     {
       "name": "Substation",
