@@ -1,32 +1,38 @@
-import { LitElement, TemplateResult } from 'lit';
+import { TemplateResult } from 'lit';
 import '@material/mwc-button';
-import '@material/mwc-icon-button';
-import '@material/mwc-list/mwc-list-item';
 import type { Button } from '@material/mwc-button';
-import type { Dialog } from '@material/mwc-dialog';
-import type { IconButton } from '@material/mwc-icon-button';
-import '../dataset/data-set-element-editor.js';
-import '../../foundation/components/action-filtered-list.js';
+import { ActionList } from '@openenergytools/filterable-lists/dist/action-list.js';
 import './sampled-value-control-element-editor.js';
-import type { ActionFilteredList } from '../../foundation/components/action-filtered-list.js';
-export declare class SampledValueControlEditor extends LitElement {
-    /** The document being edited as provided to plugins by [[`OpenSCD`]]. */
-    doc: XMLDocument;
-    /** SCL change indicator */
-    editCount: number;
-    selectedSampledValueControl?: Element;
-    selectedDataSet?: Element | null;
-    selectionList: ActionFilteredList;
+import BaseElementEditor from '../base-element-editor.js';
+import type { SampledValueControlElementEditor } from './sampled-value-control-element-editor.js';
+export declare class SampledValueControlEditor extends BaseElementEditor {
+    selectionList: ActionList;
     selectSampledValueControlButton: Button;
-    selectDataSetDialog: Dialog;
-    newDataSet: IconButton;
-    changeDataSet: IconButton;
-    /** Resets selected SMV and its DataSet, if not existing in new doc */
-    update(props: Map<string | number | symbol, unknown>): void;
-    private addNewDataSet;
-    private selectDataSet;
-    private selectSMVControl;
-    private renderSelectDataSetDialog;
+    elementContainer?: SampledValueControlElementEditor;
+    /** Resets selected SMV and its DataSet, if not existing in new doc
+    update(props: Map<string | number | symbol, unknown>): void {
+      super.update(props);
+  
+      if (props.has('doc') && this.selectCtrlBlock) {
+        const newSampledValueControl = updateElementReference(
+          this.doc,
+          this.selectCtrlBlock
+        );
+  
+        this.selectCtrlBlock = newSampledValueControl ?? undefined;
+        this.selectedDataSet = this.selectCtrlBlock
+          ? updateElementReference(this.doc, this.selectedDataSet!)
+          : undefined;
+  
+        // TODO(JakobVogelsang): add activeable to ActionList
+        /* if (
+          !newSampledValueControl &&
+          this.selectionList &&
+          this.selectionList.selected
+        )
+          (this.selectionList.selected as ListItem).selected = false;
+      }
+    } */
     private renderElementEditorContainer;
     private renderSelectionList;
     private renderToggleButton;

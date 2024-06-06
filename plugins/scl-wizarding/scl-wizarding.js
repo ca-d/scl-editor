@@ -25599,7 +25599,7 @@ function newEditEvent(edit) {
 function crossProduct$1(...arrays) {
     return arrays.reduce((a, b) => a.flatMap(d => b.map(e => [d, e].flat())), [[]]);
 }
-const wizardInputSelector = 'scl-textfield, mwc-textfield, mwc-textarea, ace-editor, mwc-select, scl-select, scl-checkbox';
+const wizardInputSelector = 'scl-wizarding-textfield, mwc-textfield, mwc-textarea, ace-editor, mwc-select, scl-wizarding-select, scl-wizarding-checkbox';
 function canCheckValidity(type) {
     return 'checkValidity' in type;
 }
@@ -33782,7 +33782,7 @@ TextField = __decorate$1([
  * `multiplier` if an SI `unit` is given.
  *
  * NB: Use `maybeValue: string | null` instead of `value` if `nullable`! */
-let SclTextfield = class SclTextfield extends TextField {
+let SclWizardingTextfield = class SclWizardingTextfield extends TextField {
     get multiplier() {
         var _a, _b;
         if (this.unit === '')
@@ -33929,40 +33929,40 @@ let SclTextfield = class SclTextfield extends TextField {
 };
 __decorate$1([
     e$6({ type: Boolean })
-], SclTextfield.prototype, "nullable", void 0);
+], SclWizardingTextfield.prototype, "nullable", void 0);
 __decorate$1([
     e$6({ type: Array })
-], SclTextfield.prototype, "multipliers", void 0);
+], SclWizardingTextfield.prototype, "multipliers", void 0);
 __decorate$1([
     e$6({ type: String })
-], SclTextfield.prototype, "multiplier", null);
+], SclWizardingTextfield.prototype, "multiplier", null);
 __decorate$1([
     e$6({ type: String })
-], SclTextfield.prototype, "unit", void 0);
+], SclWizardingTextfield.prototype, "unit", void 0);
 __decorate$1([
     t$1()
-], SclTextfield.prototype, "null", null);
+], SclWizardingTextfield.prototype, "null", null);
 __decorate$1([
     e$6({ type: String })
-], SclTextfield.prototype, "maybeValue", null);
+], SclWizardingTextfield.prototype, "maybeValue", null);
 __decorate$1([
     e$6({ type: String })
-], SclTextfield.prototype, "defaultValue", void 0);
+], SclWizardingTextfield.prototype, "defaultValue", void 0);
 __decorate$1([
     e$6({ type: Array })
-], SclTextfield.prototype, "reservedValues", void 0);
+], SclWizardingTextfield.prototype, "reservedValues", void 0);
 __decorate$1([
     i$2('mwc-switch')
-], SclTextfield.prototype, "nullSwitch", void 0);
+], SclWizardingTextfield.prototype, "nullSwitch", void 0);
 __decorate$1([
     i$2('mwc-menu')
-], SclTextfield.prototype, "multiplierMenu", void 0);
+], SclWizardingTextfield.prototype, "multiplierMenu", void 0);
 __decorate$1([
     i$2('mwc-icon-button')
-], SclTextfield.prototype, "multiplierButton", void 0);
-SclTextfield = __decorate$1([
-    e$7('scl-textfield')
-], SclTextfield);
+], SclWizardingTextfield.prototype, "multiplierButton", void 0);
+SclWizardingTextfield = __decorate$1([
+    e$7('scl-wizarding-textfield')
+], SclWizardingTextfield);
 
 const tAbstractConductingEquipment = [
     'TransformerWinding',
@@ -34795,18 +34795,18 @@ function getReference(parent, tag) {
 /* eslint-disable import/no-extraneous-dependencies */
 function renderBayWizard(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       .reservedValues="${options.reservedValues}"
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function createAction$g(parent) {
@@ -36462,7 +36462,7 @@ Select = __decorate$1([
 /** A potentially `nullable` `Select`.
  *
  * NB: Use `maybeValue: string | null` instead of `value` if `nullable`! */
-let SclSelect = class SclSelect extends Select {
+let SclWizardingSelect = class SclWizardingSelect extends Select {
     get null() {
         return this.nullable && this.isNull;
     }
@@ -36552,25 +36552,25 @@ let SclSelect = class SclSelect extends Select {
 };
 __decorate$1([
     e$6({ type: Boolean })
-], SclSelect.prototype, "nullable", void 0);
+], SclWizardingSelect.prototype, "nullable", void 0);
 __decorate$1([
     t$1()
-], SclSelect.prototype, "null", null);
+], SclWizardingSelect.prototype, "null", null);
 __decorate$1([
     e$6({ type: String })
-], SclSelect.prototype, "maybeValue", null);
+], SclWizardingSelect.prototype, "maybeValue", null);
 __decorate$1([
     e$6({ type: String })
-], SclSelect.prototype, "defaultValue", void 0);
+], SclWizardingSelect.prototype, "defaultValue", void 0);
 __decorate$1([
     e$6({ type: Array })
-], SclSelect.prototype, "reservedValues", void 0);
+], SclWizardingSelect.prototype, "reservedValues", void 0);
 __decorate$1([
     i$2('mwc-switch')
-], SclSelect.prototype, "nullSwitch", void 0);
-SclSelect = __decorate$1([
-    e$7('scl-select')
-], SclSelect);
+], SclWizardingSelect.prototype, "nullSwitch", void 0);
+SclWizardingSelect = __decorate$1([
+    e$7('scl-wizarding-select')
+], SclWizardingSelect);
 
 /**
  * @license
@@ -37050,7 +37050,7 @@ Checkbox = __decorate$1([
 ], Checkbox);
 
 /** A potentially `nullable` labelled checkbox. */
-let SclCheckbox = class SclCheckbox extends s$1 {
+let SclWizardingCheckbox = class SclWizardingCheckbox extends s$1 {
     constructor() {
         super(...arguments);
         this.label = '';
@@ -37165,43 +37165,43 @@ let SclCheckbox = class SclCheckbox extends s$1 {
 };
 __decorate$1([
     e$6({ type: String })
-], SclCheckbox.prototype, "label", void 0);
+], SclWizardingCheckbox.prototype, "label", void 0);
 __decorate$1([
     e$6({ type: String })
-], SclCheckbox.prototype, "helper", void 0);
+], SclWizardingCheckbox.prototype, "helper", void 0);
 __decorate$1([
     e$6({ type: Boolean })
-], SclCheckbox.prototype, "nullable", void 0);
+], SclWizardingCheckbox.prototype, "nullable", void 0);
 __decorate$1([
     e$6({ type: Boolean })
-], SclCheckbox.prototype, "defaultChecked", void 0);
+], SclWizardingCheckbox.prototype, "defaultChecked", void 0);
 __decorate$1([
     e$6({ type: String })
-], SclCheckbox.prototype, "maybeValue", null);
+], SclWizardingCheckbox.prototype, "maybeValue", null);
 __decorate$1([
     e$6({ type: Boolean })
-], SclCheckbox.prototype, "disabled", void 0);
+], SclWizardingCheckbox.prototype, "disabled", void 0);
 __decorate$1([
     t$1()
-], SclCheckbox.prototype, "null", null);
+], SclWizardingCheckbox.prototype, "null", null);
 __decorate$1([
     t$1()
-], SclCheckbox.prototype, "checked", null);
+], SclWizardingCheckbox.prototype, "checked", null);
 __decorate$1([
     t$1()
-], SclCheckbox.prototype, "deactivateCheckbox", void 0);
+], SclWizardingCheckbox.prototype, "deactivateCheckbox", void 0);
 __decorate$1([
     t$1()
-], SclCheckbox.prototype, "formfieldLabel", null);
+], SclWizardingCheckbox.prototype, "formfieldLabel", null);
 __decorate$1([
     i$2('mwc-switch')
-], SclCheckbox.prototype, "nullSwitch", void 0);
+], SclWizardingCheckbox.prototype, "nullSwitch", void 0);
 __decorate$1([
     i$2('mwc-checkbox')
-], SclCheckbox.prototype, "checkbox", void 0);
-SclCheckbox = __decorate$1([
-    e$7('scl-checkbox')
-], SclCheckbox);
+], SclWizardingCheckbox.prototype, "checkbox", void 0);
+SclWizardingCheckbox = __decorate$1([
+    e$7('scl-wizarding-checkbox')
+], SclWizardingCheckbox);
 
 const nameStartChar = '[:_A-Za-z]|[\u00C0-\u00D6]|[\u00D8-\u00F6]|[\u00F8-\u02FF]|[\u0370-\u037D]' +
     '|[\u037F-\u1FFF]|[\u200C-\u200D]|[\u2070-\u218F]|[\u2C00-\u2FEF]' +
@@ -37296,7 +37296,7 @@ function selectType(e, data, Val) {
     if (!e.target || !e.target.parentElement)
         return;
     const typeSelected = (_a = e.target.selected) === null || _a === void 0 ? void 0 : _a.value;
-    const selectedBType = (e.target.parentElement.querySelector('scl-select[label="bType"]')).value;
+    const selectedBType = (e.target.parentElement.querySelector('scl-wizarding-select[label="bType"]')).value;
     if (selectedBType !== 'Enum')
         return;
     const enumVals = Array.from(data.querySelectorAll(`EnumType[id="${typeSelected}"] > EnumVal`)).map(enumval => {
@@ -37307,13 +37307,13 @@ function selectType(e, data, Val) {
         >${(_d = enumval.textContent) === null || _d === void 0 ? void 0 : _d.trim()}</mwc-list-item
       >`;
     });
-    const selectValOptionUI = (e.target.parentElement.querySelector('scl-select[label="Val"]'));
+    const selectValOptionUI = (e.target.parentElement.querySelector('scl-wizarding-select[label="Val"]'));
     B(x `${enumVals}`, selectValOptionUI);
     selectValOptionUI.requestUpdate();
 }
 function selectBType(e, bType, type) {
     const bTypeSelected = e.target.selected.value;
-    const typeUI = (e.target.parentElement.querySelector('scl-select[label="type"]'));
+    const typeUI = (e.target.parentElement.querySelector('scl-wizarding-select[label="type"]'));
     typeUI.disabled = !(bTypeSelected === 'Enum' || bTypeSelected === 'Struct');
     const enabledItems = [];
     Array.from(typeUI.children).forEach(child => {
@@ -37330,12 +37330,12 @@ function selectBType(e, bType, type) {
         typeUI.value = type;
     else
         typeUI.value = enabledItems.length ? enabledItems[0].value : '';
-    const selectValOptionUI = (e.target.parentElement.querySelector('scl-select[label="Val"]'));
+    const selectValOptionUI = (e.target.parentElement.querySelector('scl-wizarding-select[label="Val"]'));
     if (bTypeSelected === 'Enum')
         selectValOptionUI.style.display = '';
     else
         selectValOptionUI.style.display = 'none';
-    const textfieldValOptionUI = (e.target.parentElement.querySelector('scl-textfield[label="Val"]'));
+    const textfieldValOptionUI = (e.target.parentElement.querySelector('scl-wizarding-textfield[label="Val"]'));
     if (bTypeSelected === 'Enum' || bTypeSelected === 'Struct')
         textfieldValOptionUI.style.display = 'none';
     else
@@ -37346,7 +37346,7 @@ function selectBType(e, bType, type) {
 }
 function renderAbstractDataAttributeContent(name, desc, bType, types, type, sAddr, valKind, valImport, Val, data) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${name}
       required
@@ -37354,15 +37354,15 @@ function renderAbstractDataAttributeContent(name, desc, bType, types, type, sAdd
       maxLength="${maxLength.abstracDaName}"
       dialogInitialFocus
     >
-      ></scl-textfield
+      ></scl-wizarding-textfield
     >`,
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${desc}
       nullable
       pattern="${patterns.normalizedString}"
-    ></scl-textfield>`,
-        x `<scl-select
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-select
       fixedMenuPosition
       label="bType"
       .value=${bType}
@@ -37370,9 +37370,9 @@ function renderAbstractDataAttributeContent(name, desc, bType, types, type, sAdd
       @selected=${(e) => selectBType(e, bType, type)}
       >${predefinedBasicTypeEnum.map(redefinedBType => x `<mwc-list-item value="${redefinedBType}"
             >${redefinedBType}</mwc-list-item
-          >`)}</scl-select
+          >`)}</scl-wizarding-select
     >`,
-        x `<scl-select
+        x `<scl-wizarding-select
       label="type"
       .maybeValue=${type}
       fixedMenuPosition
@@ -37381,15 +37381,15 @@ function renderAbstractDataAttributeContent(name, desc, bType, types, type, sAdd
             class="${dataType.tagName === 'EnumType' ? 'Enum' : 'Struct'}"
             value=${dataType.id}
             >${dataType.id}</mwc-list-item
-          >`)}</scl-select
+          >`)}</scl-wizarding-select
     >`,
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="sAddr"
       .maybeValue=${sAddr}
       nullable
       pattern="${patterns.normalizedString}"
-    ></scl-textfield>`,
-        x `<scl-select
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-select
       label="valKind"
       .maybeValue=${valKind}
       nullable
@@ -37397,27 +37397,27 @@ function renderAbstractDataAttributeContent(name, desc, bType, types, type, sAdd
       fixedMenuPosition
       >${valKindEnum.map(valKindOption => x `<mwc-list-item value="${valKindOption}"
             >${valKindOption}</mwc-list-item
-          >`)}</scl-select
+          >`)}</scl-wizarding-select
     >`,
-        x `<scl-checkbox
+        x `<scl-wizarding-checkbox
       label="valImport"
       .maybeValue=${valImport}
       nullable
       required
-    ></scl-checkbox>`,
-        x `<scl-select label="Val" .maybeValue=${Val} nullable
+    ></scl-wizarding-checkbox>`,
+        x `<scl-wizarding-select label="Val" .maybeValue=${Val} nullable
       >${Array.from(data.querySelectorAll(`EnumType > EnumVal[id="${type}"]`)).map(enumVal => {
             var _a, _b, _c;
             return x `<mwc-list-item value="${(_b = (_a = enumVal.textContent) === null || _a === void 0 ? void 0 : _a.trim()) !== null && _b !== void 0 ? _b : ''}"
             >${(_c = enumVal.textContent) === null || _c === void 0 ? void 0 : _c.trim()}</mwc-list-item
           >`;
-        })}</scl-select
+        })}</scl-wizarding-select
     >`,
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="Val"
       .maybeValue=${Val}
       nullable
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function getValAction(oldVal, Val, abstractda) {
@@ -37713,18 +37713,18 @@ function renderTypeSelector(option, type) {
 function renderConductingEquipmentWizard(options) {
     return [
         renderTypeSelector(options.option, options.type),
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       dialogInitialFocus
       .reservedValues=${options.reservedValues}
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function createAction$f(parent) {
@@ -42015,7 +42015,7 @@ function idNamingIdentity(e) {
 /* eslint-disable import/no-extraneous-dependencies */
 function getPElement(parent, type) {
     var _a;
-    return ((_a = Array.from(parent.querySelectorAll('Address > P')).find(p => p.getAttribute('type') === type)) !== null && _a !== void 0 ? _a : null);
+    return ((_a = Array.from(parent.querySelectorAll(':scope > Address > P')).find(p => p.getAttribute('type') === type)) !== null && _a !== void 0 ? _a : null);
 }
 function existDiff(oldAddr, newAddr) {
     return Array.from(oldAddr.querySelectorAll('P')).some(pType => {
@@ -42078,13 +42078,13 @@ function contentAddress(content) {
         ?checked="${hasTypeRestriction(content.element)}"
       ></mwc-checkbox>
     </mwc-formfield>`,
-        x `${Object.entries(pChildren).map(([key, value]) => x `<scl-textfield
+        x `${Object.entries(pChildren).map(([key, value]) => x `<scl-wizarding-textfield
           label="${key}"
           ?nullable=${typeNullable[key]}
           .maybeValue=${value}
           pattern="${l$1(typePattern[key])}"
           required
-        ></scl-textfield>`)}`,
+        ></scl-wizarding-textfield>`)}`,
     ];
 }
 
@@ -42402,24 +42402,28 @@ function editConnectedApWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function renderAdditionalDaContent(fc, dchg, qchg, dupd) {
     return [
-        x `<scl-select label="fc" .maybeValue=${fc} required fixedMenuPosition
-      >${functionalConstraintEnum.map(fcOption => x `<mwc-list-item value="${fcOption}">${fcOption}</mwc-list-item>`)}</scl-select
+        x `<scl-wizarding-select
+      label="fc"
+      .maybeValue=${fc}
+      required
+      fixedMenuPosition
+      >${functionalConstraintEnum.map(fcOption => x `<mwc-list-item value="${fcOption}">${fcOption}</mwc-list-item>`)}</scl-wizarding-select
     >`,
-        x `<scl-checkbox
+        x `<scl-wizarding-checkbox
       label="dchg"
       .maybeValue=${dchg}
       nullable
-    ></scl-checkbox>`,
-        x `<scl-checkbox
+    ></scl-wizarding-checkbox>`,
+        x `<scl-wizarding-checkbox
       label="qchg"
       .maybeValue=${qchg}
       nullable
-    ></scl-checkbox>`,
-        x `<scl-checkbox
+    ></scl-wizarding-checkbox>`,
+        x `<scl-wizarding-checkbox
       label="dupd"
       .maybeValue=${dupd}
       nullable
-    ></scl-checkbox>`,
+    ></scl-wizarding-checkbox>`,
     ];
 }
 function createDaAction(parent) {
@@ -42621,20 +42625,20 @@ function createDATypeWizard(parent) {
                 action: createDATypeAction(parent),
             },
             content: [
-                x `<scl-textfield
+                x `<scl-wizarding-textfield
           label="id"
           .maybeValue=${''}
           required
           maxlength="127"
           minlength="1"
           pattern="${patterns.nmToken}"
-        ></scl-textfield>`,
-                x `<scl-textfield
+        ></scl-wizarding-textfield>`,
+                x `<scl-wizarding-textfield
           label="desc"
           .maybeValue=${null}
           nullable
           pattern="${patterns.normalizedString}"
-        ></scl-textfield>`,
+        ></scl-wizarding-textfield>`,
             ],
         },
     ];
@@ -42643,37 +42647,37 @@ function createDATypeWizard(parent) {
 /* eslint-disable import/no-extraneous-dependencies */
 function renderContent$4(content) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${content.name}
       required
       pattern="${patterns.alphanumericFirstUpperCase}"
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${content.desc}
       nullable
       pattern="${patterns.normalizedString}"
-    ></scl-textfield>`,
-        x `<scl-select fixedMenuPosition label="type" required
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-select fixedMenuPosition label="type" required
       >${content.doTypes.map(dataType => x `<mwc-list-item
             value=${dataType.id}
             ?selected=${dataType.id === content.type}
             >${dataType.id}</mwc-list-item
-          >`)}</scl-select
+          >`)}</scl-wizarding-select
     >`,
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="accessControl"
       .maybeValue=${content.accessControl}
       nullable
       pattern="${patterns.normalizedString}"
-    ></scl-textfield>`,
-        x `<scl-checkbox
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-checkbox
       label="transient"
       .maybeValue="${content.transient}"
       nullable
-    ></scl-checkbox>`,
+    ></scl-wizarding-checkbox>`,
     ];
 }
 function createDoAction(parent) {
@@ -42795,25 +42799,25 @@ function createDOTypeWizard(parent) {
                 action: createDOTypeAction(parent),
             },
             content: [
-                x `<scl-textfield
+                x `<scl-wizarding-textfield
           label="id"
           .maybeValue=${''}
           required
           maxlength="127"
           minlength="1"
           pattern="${patterns.nmToken}"
-        ></scl-textfield>`,
-                x `<scl-textfield
+        ></scl-wizarding-textfield>`,
+                x `<scl-wizarding-textfield
           label="desc"
           .maybeValue=${null}
           nullable
           pattern="${patterns.normalizedString}"
-        ></scl-textfield>`,
-                x `<scl-textfield
+        ></scl-wizarding-textfield>`,
+                x `<scl-wizarding-textfield
           label="cdc"
           .maybeValue=${'ENS'}
           pattern="${patterns.cdc}"
-        ></scl-textfield>`,
+        ></scl-wizarding-textfield>`,
             ],
         },
     ];
@@ -42843,20 +42847,20 @@ function createEnumTypeWizard(parent) {
                 action: createEnumTypeAction(parent),
             },
             content: [
-                x `<scl-textfield
+                x `<scl-wizarding-textfield
           label="id"
           .maybeValue=${''}
           required
           maxlength="127"
           minlength="1"
           pattern="${patterns.nmToken}"
-        ></scl-textfield>`,
-                x `<scl-textfield
+        ></scl-wizarding-textfield>`,
+                x `<scl-wizarding-textfield
           label="desc"
           .maybeValue=${null}
           nullable
           pattern="${patterns.normalizedString}"
-        ></scl-textfield>`,
+        ></scl-wizarding-textfield>`,
             ],
         },
     ];
@@ -42864,25 +42868,25 @@ function createEnumTypeWizard(parent) {
 
 function renderContent$3(content) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="ord"
       .maybeValue=${content.ord}
       required
       type="number"
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="value"
       .maybeValue=${content.value}
       pattern="${patterns.normalizedString}"
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       id="evDesc"
       label="desc"
       .maybeValue=${content.desc}
       nullable
       pattern="${patterns.normalizedString}"
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function nextOrd(parent) {
@@ -42970,23 +42974,23 @@ function editEnumValWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function contentFunctionWizard(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       .reservedValues=${options.reservedValues}
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="type"
       .maybeValue=${options.type}
       nullable
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function createFunctionAction(parent) {
@@ -43219,30 +43223,30 @@ function editEqSubFunctionWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function contentGeneralEquipmentWizard(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       .reservedValues=${options.reservedValues}
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="type"
       .maybeValue=${options.type}
       minLength="3"
       pattern="AXN|BAT|MOT|FAN|FIL|PMP|TNK|VLV|E[A-Z]*"
       required
-    ></scl-textfield>`,
-        x `<scl-checkbox
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-checkbox
       label="virtual"
       .maybeValue=${options.virtual}
       nullable
-    ></scl-checkbox>`,
+    ></scl-wizarding-checkbox>`,
     ];
 }
 function createAction$c(parent) {
@@ -43401,20 +43405,20 @@ function editGseWizard(element) {
             },
             content: [
                 ...contentAddress({ element, types }),
-                x `<scl-textfield
+                x `<scl-wizarding-textfield
           label="MinTime"
           .maybeValue=${minTime}
           nullable
           suffix="ms"
           type="number"
-        ></scl-textfield>`,
-                x `<scl-textfield
+        ></scl-wizarding-textfield>`,
+                x `<scl-wizarding-textfield
           label="MaxTime"
           .maybeValue=${maxTime}
           nullable
           suffix="ms"
           type="number"
-        ></scl-textfield>`,
+        ></scl-wizarding-textfield>`,
             ],
         },
     ];
@@ -43423,33 +43427,33 @@ function editGseWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function render$4(name, iedNames, desc, type, manufacturer, owner) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${name}
       .reservedValues=${iedNames}
       required
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="type"
       .maybeValue=${type}
       disabled
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="manufacturer"
       .maybeValue=${manufacturer}
       disabled
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="owner"
       .maybeValue=${owner}
       disabled
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function updateAction$d(element) {
@@ -43484,17 +43488,17 @@ function iEDEditWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function render$3(inst, name, ldNames) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="inst"
       .maybeValue=${inst}
       disabled
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${name}
       nullable
       .reservedValues=${ldNames}
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function updateAction$c(element) {
@@ -43529,30 +43533,30 @@ function lDeviceEditWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function renderContent$2(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="type"
       .maybeValue=${options.type}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="nomFreq"
       .maybeValue=${options.nomFreq}
       nullable
       suffix="Hz"
       pattern="${patterns.unsigned}"
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="numPhases"
       .maybeValue=${options.numPhases}
       nullable
@@ -43560,7 +43564,7 @@ function renderContent$2(options) {
       type="number"
       min="1"
       max="255"
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function createAction$b(parent) {
@@ -44748,25 +44752,25 @@ function createLNodeTypeWizard(parent) {
                 action: createLNodeTypeAction(parent),
             },
             content: [
-                x `<scl-textfield
+                x `<scl-wizarding-textfield
           label="id"
           .maybeValue=${''}
           required
           maxlength="127"
           minlength="1"
           pattern="${patterns.nmToken}"
-        ></scl-textfield>`,
-                x `<scl-textfield
+        ></scl-wizarding-textfield>`,
+                x `<scl-wizarding-textfield
           label="desc"
           .maybeValue=${null}
           nullable
           pattern="${patterns.normalizedString}"
-        ></scl-textfield>`,
-                x `<scl-textfield
+        ></scl-wizarding-textfield>`,
+                x `<scl-wizarding-textfield
           label="lnClass"
           .maybeValue=${'LLN0'}
           pattern="${patterns.lnClass}"
-        ></scl-textfield>`,
+        ></scl-wizarding-textfield>`,
             ],
         },
     ];
@@ -44776,23 +44780,23 @@ function createLNodeTypeWizard(parent) {
 const defaultPowerTransformerType = 'PTR';
 function renderPowerTransformerWizard(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       dialogInitialFocus
       .reservedValues=${options.reservedValues}
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="type"
       .maybeValue=${options.type}
       disabled
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function createAction$9(parent) {
@@ -44863,23 +44867,23 @@ function editPowerTransformerWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function contentProcessWizard(content) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${content.name}
       required
       .reservedValues=${content.reservedNames}
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${content.desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="type"
       .maybeValue=${content.type}
       nullable
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function createAction$8(parent) {
@@ -44964,27 +44968,27 @@ function editProcessWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function renderContent$1(content) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${content.name}
       required
       pattern="${patterns.alphanumericFirstLowerCase}"
       dialogInitialFocus
     >
-      ></scl-textfield
+      ></scl-wizarding-textfield
     >`,
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${content.desc}
       nullable
       pattern="${patterns.normalizedString}"
-    ></scl-textfield>`,
-        x `<scl-select fixedMenuPosition label="type" required
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-select fixedMenuPosition label="type" required
       >${content.doTypes.map(dataType => x `<mwc-list-item
             value=${dataType.id}
             ?selected=${dataType.id === content.type}
             >${dataType.id}</mwc-list-item
-          >`)}</scl-select
+          >`)}</scl-wizarding-select
     >`,
     ];
 }
@@ -45093,19 +45097,19 @@ function editSMvWizard(element) {
 
 function contentSubEquipmentWizard(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       .reservedValues=${options.reservedValues}
       required
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-select
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-select
       label="phase"
       fixedMenuPosition
       .maybeValue=${options.phase}
@@ -45114,12 +45118,12 @@ function contentSubEquipmentWizard(options) {
       ${['A', 'B', 'C', 'N', 'all', 'none', 'AB', 'BC', 'CA'].map(value => x `<mwc-list-item value="${value}">
             ${value.charAt(0).toUpperCase() + value.slice(1)}
           </mwc-list-item>`)}
-    </scl-select> `,
-        x `<scl-checkbox
+    </scl-wizarding-select> `,
+        x `<scl-wizarding-checkbox
       label="virtual"
       .maybeValue=${options.virtual}
       nullable
-    ></scl-checkbox>`,
+    ></scl-wizarding-checkbox>`,
     ];
 }
 function createAction$7(parent) {
@@ -45288,24 +45292,24 @@ const initial$1 = {
 };
 function renderContent(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="type"
       .maybeValue=${options.type}
       nullable
       pattern="${patterns.normalizedString}"
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="BitRate"
       .maybeValue=${options.BitRate}
       nullable
@@ -45314,7 +45318,7 @@ function renderContent(options) {
       .multiplier=${options.multiplier}
       required
       pattern="${patterns.decimal}"
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function createAction$5(parent) {
@@ -45463,18 +45467,18 @@ function editSubNetworkWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function render$2(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       .reservedValues="${options.reservedValues}"
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function createAction$4(parent) {
@@ -45544,28 +45548,28 @@ function editSubstationWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function contentTapChangerWizard(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       .reservedValues=${options.reservedValues}
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="type"
       .maybeValue=${options.type}
       disabled
-    ></scl-textfield>`,
-        x `<scl-checkbox
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-checkbox
       label="virtual"
       .maybeValue=${options.virtual}
       nullable
-    ></scl-checkbox>`,
+    ></scl-wizarding-checkbox>`,
     ];
 }
 function createAction$3(parent) {
@@ -45844,28 +45848,28 @@ function editTextWizard(element) {
 /* eslint-disable import/no-extraneous-dependencies */
 function contentTransformerWindingWizard(options) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${options.name}
       required
       .reservedValues=${options.reservedValues}
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${options.desc}
       nullable
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="type"
       .maybeValue=${options.type}
       disabled
-    ></scl-textfield>`,
-        x `<scl-checkbox
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-checkbox
       label="virtual"
       .maybeValue=${options.virtual}
       nullable
-    ></scl-checkbox>`,
+    ></scl-wizarding-checkbox>`,
     ];
 }
 function createAction$1(parent) {
@@ -45957,7 +45961,7 @@ const initial = {
 };
 function render(option) {
     return [
-        x `<scl-textfield
+        x `<scl-wizarding-textfield
       label="name"
       .maybeValue=${option.name}
       helper="VoltageLevel name attribute"
@@ -45965,14 +45969,14 @@ function render(option) {
       validationMessage="Required information"
       .reservedValues="${option.reservedValues}"
       dialogInitialFocus
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="desc"
       .maybeValue=${option.desc}
       nullable
       helper="VoltageLevel name attribute"
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="nomFreq"
       .maybeValue=${option.nomFreq}
       nullable
@@ -45980,8 +45984,8 @@ function render(option) {
       suffix="Hz"
       required
       validationMessage="Number bigger than 0"
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="numPhases"
       .maybeValue=${option.numPhases}
       nullable
@@ -45992,8 +45996,8 @@ function render(option) {
       type="number"
       min="1"
       max="255"
-    ></scl-textfield>`,
-        x `<scl-textfield
+    ></scl-wizarding-textfield>`,
+        x `<scl-wizarding-textfield
       label="Voltage"
       .maybeValue=${option.Voltage}
       nullable
@@ -46003,7 +46007,7 @@ function render(option) {
       helper="Voltage"
       required
       validationMessage="Number bigger than 0"
-    ></scl-textfield>`,
+    ></scl-wizarding-textfield>`,
     ];
 }
 function createAction(parent) {
